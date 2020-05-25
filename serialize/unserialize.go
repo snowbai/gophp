@@ -203,9 +203,12 @@ func unMarshalArray(reader *bytes.Reader) (interface{}, error) {
 
 	if indexLen == arrLen {
 		var slice []interface{}
-		for _, row := range val {
-			slice = append(slice, row)
+		for i:=0 ; i< indexLen; i++ {
+			slice = append(slice, val[utils.NumericalToString(i)])
 		}
+		//for _, row := range val {
+		//	slice = append(slice, row)
+		//}
 		return slice, nil
 	}
 
